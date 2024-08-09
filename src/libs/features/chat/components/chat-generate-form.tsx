@@ -8,6 +8,7 @@ import { useGenerateChat } from '../hooks/useGenerateChat';
 import { Button } from '@/libs/shared/components/ui/button';
 import { use } from 'react';
 import { useChatContext } from '../context/chatContext';
+import { Textarea } from '@/libs/shared/components/ui/textarea';
 
 export default function ChatGenerateForm() {
   const form = useForm<ChatGenerateSchema>({
@@ -38,7 +39,7 @@ export default function ChatGenerateForm() {
         <Controller
           control={form.control}
           name="text"
-          render={({ field }) => <Input {...field} />}
+          render={({ field }) => <Textarea placeholder="Take your imagination to reality🤩" {...field} />}
         />
         <Button type="submit">Generate</Button>
       </div>

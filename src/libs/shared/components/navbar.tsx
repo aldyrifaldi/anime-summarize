@@ -2,7 +2,7 @@ import { ModeToggle } from './ui/mode-toggle';
 
 export default function Navbar() {
   return (
-    <nav className="flex bg-foreground p-5">
+    <nav className="flex p-5">
       <div className="flex w-full justify-between">
         <div className="flex items-center gap-5">
           <div className="text-2xl font-bold">Chatbot</div>

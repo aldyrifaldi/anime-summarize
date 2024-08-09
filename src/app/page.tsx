@@ -11,7 +11,11 @@ export default function Home() {
         <ChatProvider>
           <div className="flex h-full flex-col justify-end gap-5">
             <ChatResponseView />
-            <ChatGenerateForm />
+            <div className="relative">
+              <div className="sticky">
+                <ChatGenerateForm />
+              </div>
+            </div>
           </div>
         </ChatProvider>
       </div>
