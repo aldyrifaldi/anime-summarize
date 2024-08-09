@@ -5,13 +5,14 @@ import ChatProvider from '@/libs/features/chat/providers/chat-provider';
 import { useState } from 'react';
 
 export default function Home() {
-
   return (
     <Container>
-      <div className="mt-5">
+      <div className="h-screen pb-14">
         <ChatProvider>
-          <ChatResponseView />
-          <ChatGenerateForm />
+          <div className="flex h-full flex-col justify-end gap-5">
+            <ChatResponseView />
+            <ChatGenerateForm />
+          </div>
         </ChatProvider>
       </div>
     </Container>

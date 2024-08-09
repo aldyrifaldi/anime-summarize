@@ -6,13 +6,27 @@ import { chatGenerateSchema, ChatGenerateSchema } from '../schemas/chatGenerateS
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useGenerateChat } from '../hooks/useGenerateChat';
 import { Button } from '@/libs/shared/components/ui/button';
+import { use } from 'react';
+import { useChatContext } from '../context/chatContext';
 
 export default function ChatGenerateForm() {
   const form = useForm<ChatGenerateSchema>({
     resolver: zodResolver(chatGenerateSchema),
   });
 
-  const sendChat = useGenerateChat();
+  const { setIsGenerating, setGeneratedContent } = useChatContext();
+
+  const sendChat = useGenerateChat({
+    onMutate: () => {
+      setIsGenerating(true);
+    },
+    onSuccess: (data) => {
+      setGeneratedContent(data);
+    },
+    onSettled: () => {
+      setIsGenerating(false);
+    },
+  });
 
   const handleSubmit = (data: ChatGenerateSchema) => {
     sendChat.mutate(data.text);

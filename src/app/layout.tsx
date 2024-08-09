@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
 import TanstackReactQuery from '@/libs/providers/tanstack-react-query';
 import { cn } from '@/libs/shared/utilities/cn';
+import { ThemeProvider } from '@/libs/providers/theme-provider';
 
 const fontSans = FontSans({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -19,7 +20,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
-        <TanstackReactQuery>{children}</TanstackReactQuery>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <TanstackReactQuery>{children}</TanstackReactQuery>
+        </ThemeProvider>
       </body>
     </html>
   );
