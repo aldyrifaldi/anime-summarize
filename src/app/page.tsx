@@ -1,5 +1,5 @@
-import ChatResponseView from '@/libs/features/chat-book/components/chat-response-view';
-import Container from '@/libs/features/chat-book/layouts/container';
+import ChatResponseView from '@/libs/features/chat/components/chat-response-view';
+import Container from '@/libs/features/chat/layouts/container';
 
 export default function Home() {
   return (
