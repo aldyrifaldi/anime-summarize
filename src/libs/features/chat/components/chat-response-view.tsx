@@ -1,12 +1,11 @@
 'use client';
 
 import Markdown from 'react-markdown';
+import { useChatContext } from '../context/chatContext';
 
-type ChatResponseViewProps = Readonly<{
-  generatedContent: string;
-}>;
-
-export default function ChatResponseView({ generatedContent }: ChatResponseViewProps) {
+export default function ChatResponseView() {
+  const { generatedContent } = useChatContext();
+  
   return (
     <div className="rounded-md bg-zinc-200 p-2">
       <Markdown
