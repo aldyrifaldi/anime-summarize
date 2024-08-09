@@ -6,7 +6,7 @@ import { generativeText } from '../api';
 
 export const useGenerateChat = () => {
   return useMutation({
-    mutationKey: [reactQueryKey.chatBook.generateText],
+    mutationKey: [reactQueryKey.chat.generateText],
     mutationFn: generativeText,
   });
 };
